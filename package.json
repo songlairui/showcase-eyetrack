@@ -1,0 +1,22 @@
+{
+  "name": "play-media-pipe",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@mediapipe/tasks-vision": "^0.10.2",
+    "solid-js": "^1.7.7",
+    "three": "^0.154.0"
+  },
+  "devDependencies": {
+    "@types/three": "^0.154.0",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.0",
+    "vite-plugin-solid": "^2.7.0"
+  }
+}
