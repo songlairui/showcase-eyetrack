@@ -467,3 +467,5 @@ export function SetupEyeTrack(props: {
 
   return null;
 }
+
+export default SetupEyeTrack;

@@ -1,9 +1,16 @@
 // config vite.d.ts make the "@mediapipe/tasks-vision" work
 
-import { FaceLandmarker, FilesetResolver } from "@mediapipe/tasks-vision";
+// import { FaceLandmarker, FilesetResolver } from "@mediapipe/tasks-vision";
 import { PREPARED_ASSETS } from "../PREPARED";
 
 export async function prepareMediapipeVision() {
+  const visionModule = await import("@mediapipe/tasks-vision");
+  const FilesetResolver =
+    visionModule.FilesetResolver || visionModule.default.FilesetResolver;
+
+  const FaceLandmarker =
+    visionModule.FaceLandmarker || visionModule.default.FaceLandmarker;
+
   const filesetResolver = await FilesetResolver.forVisionTasks(
     // "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0/wasm"
     PREPARED_ASSETS.visionBasePath

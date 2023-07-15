@@ -3,12 +3,12 @@ import {
   createMemo,
   createResource,
   createSignal,
+  lazy,
   onMount,
 } from "solid-js";
 
 import { EyeCursor, Minimap } from "./components/Minimap/Minimap";
 import { TrackMonitor } from "./components/EyeTrack/TrackMonitor";
-import { SetupEyeTrack } from "./components/EyeTrack";
 
 import { createCursor } from "./util/createCursor";
 import { SetupBoundary } from "./util/createBoundary";
@@ -18,6 +18,11 @@ import "./App.css";
 import { Cam } from "./components/EyeTrack/Cam";
 import { createControlVideo } from "./components/EyeTrack/createControlVideo";
 import { Checkbox } from "./components/Checkbox";
+import { Dynamic } from "solid-js/web";
+
+// import { SetupEyeTrack } from "./components/EyeTrack";
+
+const SetupEyeTrack = lazy(() => import("./components/EyeTrack"));
 
 function App() {
   const [point, setPoint] = createSignal<{ x: number; y: number }>({
@@ -92,7 +97,7 @@ function App() {
           value={showCam()}
           onChange={(val) => setShowCam(val)}
         >
-          {"Show Cam Video"}
+          <Dynamic component={enable() ? "u" : "s"}>{"Show Cam Video"}</Dynamic>
         </Checkbox>
         <Checkbox value={showMonitor()} onChange={(val) => setShowMonitor(val)}>
           {"Show Monitor"}
