@@ -5,7 +5,6 @@ import { createRoot, createSignal, onMount } from "solid-js";
 import { debounce } from "./debounce";
 
 export const globalBoundary = createRoot(function createBoundary() {
-  let timer = null;
   let shouldShowWarnMessage = true;
   const [boundary, originSetBoundary] = createSignal<{
     l: number;
@@ -30,7 +29,7 @@ export const globalBoundary = createRoot(function createBoundary() {
     h_screen: 720,
     sys_bar: 26,
   });
-  timer = setTimeout(() => {
+  setTimeout(() => {
     // check was setupBoundary settled
     if (shouldShowWarnMessage) {
       console.warn("should setup <SetupBoundary />");
