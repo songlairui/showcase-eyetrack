@@ -68,7 +68,7 @@ function App() {
   return (
     <>
       <SetupBoundary />
-      <Show when={showMinimap}>
+      <Show when={showMinimap()}>
         <Minimap cursor={cursor()} />
       </Show>
       <EyeCursor cursor={cursor()} />
@@ -102,6 +102,27 @@ function App() {
         <Checkbox value={showMonitor()} onChange={(val) => setShowMonitor(val)}>
           {"Show Monitor"}
         </Checkbox>
+      </div>
+      <div
+        style={{
+          display: "grid",
+          "justify-content": "center",
+          "text-align": "left",
+        }}
+      >
+        <h3 style={{ "margin-bottom": "0" }}>Reference:</h3>
+        <ul style={{}}>
+          <li>
+            <a href="https://developers.google.com/mediapipe/solutions/vision/face_landmarker/web_js">
+              google mediapipe solution: vision face landmarks
+            </a>
+          </li>
+          <li>
+            <a href="https://threejs.org/examples/?q=cam#webgl_morphtargets_webcam">
+              threejs example: morphtargets_webcam
+            </a>
+          </li>
+        </ul>
       </div>
 
       {/* TODO  get stream without <video /> */}

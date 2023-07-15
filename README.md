@@ -1,4 +1,10 @@
-## Usage solid js / mediapipe / threejs
+## Eye Tracking via media-pipe
+
+> Usage solid js / mediapipe / threejs
+
+demo: https://eye-track.lary-showcase.top/
+
+screenshow: [repo wiki:ScreenShot](https://github.com/songlairui/showcase-eyetrack/wiki/ScreenShot)
 
 reference:
 

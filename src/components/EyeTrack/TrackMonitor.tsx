@@ -12,7 +12,7 @@ export function TrackMonitor(props: {
         position: "fixed",
         bottom: "10px",
         right: "10px",
-        "pointer-events": "none",
+        // "pointer-events": "none", // three control draggable
         "border-radius": "6px",
         background: "lightgray",
       }}
