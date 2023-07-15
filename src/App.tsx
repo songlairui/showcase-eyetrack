@@ -6,10 +6,6 @@ import type { FaceLandmarkerResult } from '@mediapipe/tasks-vision'
 import { FaceLandmarker, FilesetResolver } from '@mediapipe/tasks-vision'
 // import { FaceLandmarker, FilesetResolver, DrawingUtils } from '@mediapipe/tasks-vision'
 
-import wasmJsFilePath from '../node_modules/@mediapipe/tasks-vision/wasm/vision_wasm_internal.js?url'
-import wasmFilePath from '../node_modules/@mediapipe/tasks-vision/wasm/vision_wasm_internal.wasm?url'
-import threeJsmFilePath from 'three/addons/libs/basis/basis_transcoder.js?url'
-
 import * as THREE from 'three'
 
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
@@ -18,13 +14,9 @@ import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { KTX2Loader } from 'three/addons/loaders/KTX2Loader.js';
 import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
+import { PREPARED_ASSETS } from './PREPARED'
 
 // import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
-
-// TODO copy static files to public
-const basePath = wasmJsFilePath.split('/').slice(0, -1).join('/')
-const JSM_BASE_PATH = threeJsmFilePath.split('/').slice(0, -1).concat('').join('/')
-console.info({ wasmJsFilePath, wasmFilePath, basePath, threeJsmFilePath, jsmBasePath: JSM_BASE_PATH })
 
 
 declare let chrome: any
@@ -32,13 +24,13 @@ declare let chrome: any
 // import {} from '@mediapipe/tasks-vision/wasm/'
 async function prepare() {
   const filesetResolver = await FilesetResolver.forVisionTasks(
-    basePath
     // "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0/wasm"
+    PREPARED_ASSETS.visionBasePath
   );
   const faceLandmarker = await FaceLandmarker.createFromOptions(filesetResolver, {
     baseOptions: {
-      modelAssetPath: 'task/face_landmarker.task',
       // modelAssetPath: `https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task`,
+      modelAssetPath: PREPARED_ASSETS.faceLandmarker,
       delegate: "GPU"
     },
     outputFaceBlendshapes: true,
@@ -438,13 +430,13 @@ function App() {
     // Face
     const ktx2Loader = new KTX2Loader()
       // static path
-      .setTranscoderPath(JSM_BASE_PATH)
+      .setTranscoderPath(PREPARED_ASSETS.jsmBasePath)
       .detectSupport(renderer)
 
     new GLTFLoader()
       .setKTX2Loader(ktx2Loader)
       .setMeshoptDecoder(MeshoptDecoder)
-      .load('/models/facecap.glb', gltf => {
+      .load(PREPARED_ASSETS.faceCap, gltf => {
         // 
         const mesh = gltf.scene.children[0]
         scene.add(mesh)

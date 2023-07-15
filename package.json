@@ -17,6 +17,7 @@
     "@types/three": "^0.154.0",
     "typescript": "^5.0.2",
     "vite": "^4.4.0",
-    "vite-plugin-solid": "^2.7.0"
+    "vite-plugin-solid": "^2.7.0",
+    "vite-plugin-static-copy": "^0.16.0"
   }
 }
