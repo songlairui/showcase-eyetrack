@@ -1,9 +1,11 @@
 import { defineConfig } from "vite";
 import solid from "vite-plugin-solid";
 import { viteStaticCopy } from "vite-plugin-static-copy";
+import unocss from "unocss/vite";
 
 export default defineConfig({
   plugins: [
+    unocss(),
     solid(),
     // prepare wasm related files
     viteStaticCopy({

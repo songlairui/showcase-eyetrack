@@ -8,19 +8,23 @@ export function TrackMonitor(props: {
   return (
     <div
       style={{
-        display: props.show ? "flex" : "none",
-        position: "fixed",
-        bottom: "10px",
-        right: "10px",
+        display: "flex",
+        // display: props.show ? "flex" : "none",
+        // position: "fixed",
+        // bottom: "10px",
+        // right: "10px",
         // "pointer-events": "none", // three control draggable
         "border-radius": "6px",
-        background: "lightgray",
+        width: "360px",
+        height: "240px",
+        background: "rgba(255, 255, 255, .6)",
       }}
     >
       <canvas
         ref={props.ref}
         // threejs renderer will also setSize
         style={{
+          display: props.show ? "block" : "none",
           "border-radius": "6px",
           width: "360px",
           height: "240px",

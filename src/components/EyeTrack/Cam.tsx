@@ -7,9 +7,9 @@ export function Cam(props: {
   return (
     <div
       style={{
-        position: "fixed",
-        bottom: "260px",
-        right: "10px",
+        // position: "fixed",
+        // bottom: "260px",
+        // right: "10px",
         "pointer-events": "none",
         "border-radius": "6px",
         background: "lightgray",

@@ -5,7 +5,7 @@ export function Checkbox(props: {
   onChange?: (val: boolean) => void;
 }) {
   return (
-    <label>
+    <label class="flex gap-2 items-center">
       <input
         type="checkbox"
         disabled={props.disabled}

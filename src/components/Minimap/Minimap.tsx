@@ -15,45 +15,53 @@ export function Minimap(props: { cursor: CursorState }) {
 
   return (
     <div
-      class={css.screen}
       style={{
-        width: `${boundary().w_screen}px`,
-        height: `${boundary().h_screen}px`,
+        width: `${boundary().w_screen * 0.2}px`,
+        height: `${boundary().h_screen * 0.2}px`,
+        overflow: "hidden",
       }}
     >
       <div
-        class={css.sysbar}
+        class={css.screen}
         style={{
-          height: `${boundary().sys_bar}px`,
-        }}
-      ></div>
-      <div
-        class={css.browser}
-        style={{
-          left: `${boundary().l}px`,
-          top: `${boundary().t_outer}px`,
-          width: `${boundary().w_outer}px`,
-          height: `${boundary().h_outer}px`,
+          width: `${boundary().w_screen}px`,
+          height: `${boundary().h_screen}px`,
         }}
       >
-        {JSON.stringify(boundary())}
+        <div
+          class={css.sysbar}
+          style={{
+            height: `${boundary().sys_bar}px`,
+          }}
+        ></div>
+        <div
+          class={css.browser}
+          style={{
+            left: `${boundary().l}px`,
+            top: `${boundary().t_outer}px`,
+            width: `${boundary().w_outer}px`,
+            height: `${boundary().h_outer}px`,
+          }}
+        >
+          {JSON.stringify(boundary())}
+        </div>
+        <div
+          class={css.viewport}
+          style={{
+            left: `${boundary().l}px`,
+            top: `${boundary().t}px`,
+            width: `${boundary().w}px`,
+            height: `${boundary().h}px`,
+          }}
+        ></div>
+        <div
+          class={css["eye-track-thumb"]}
+          style={{
+            left: `${screenPoint().left}px`,
+            top: `${screenPoint().top}px`,
+          }}
+        ></div>
       </div>
-      <div
-        class={css.viewport}
-        style={{
-          left: `${boundary().l}px`,
-          top: `${boundary().t}px`,
-          width: `${boundary().w}px`,
-          height: `${boundary().h}px`,
-        }}
-      ></div>
-      <div
-        class={css["eye-track-thumb"]}
-        style={{
-          left: `${screenPoint().left}px`,
-          top: `${screenPoint().top}px`,
-        }}
-      ></div>
     </div>
   );
 }
