@@ -203,11 +203,10 @@ function App() {
               <strong>{`Checkout the code:\n  `}</strong>
               <code>
                 <a href="https://github.com/songlairui/showcase-eyetrack/blob/master/src/components/EyeTrack/index.tsx#L450">
-                  [repo]/src/components/EyeTrack/index.tsx#L450 setupEyeTrack()
+                  [repo]/src/components/EyeTrack/index.tsx#L450
                 </a>
+                {` setupEyeTrack()`}
               </code>
-              {`
-              `}
             </pre>
             <h3 style={{ "margin-bottom": "0" }}>Reference:</h3>
             <ul style={{}}>
