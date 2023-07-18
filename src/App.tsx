@@ -120,12 +120,15 @@ function App() {
 
           <div class={css.controls}>
             <div class={css["control-item"]}>
-              {/* <Checkbox
-                value={showMinimap()}
-                onChange={(val) => setShowMinimap(val)}
-              >
-                {"Show Minimap"}
-              </Checkbox> */}
+              {/* 暂不控制 */}
+              <Show when={false}>
+                <Checkbox
+                  value={showMinimap()}
+                  onChange={(val) => setShowMinimap(val)}
+                >
+                  {"Show Minimap"}
+                </Checkbox>
+              </Show>
               <div class={css.tip}>
                 browser-viewport browser-boundary screen
               </div>
@@ -134,12 +137,15 @@ function App() {
               </Show>
             </div>
             <div class={css["control-item"]}>
-              {/* <Checkbox
-                value={showMonitor()}
-                onChange={(val) => setShowMonitor(val)}
-              >
-                {"Show Monitor"}
-              </Checkbox> */}
+              {/* 暂不控制 */}
+              <Show when={false}>
+                <Checkbox
+                  value={showMonitor()}
+                  onChange={(val) => setShowMonitor(val)}
+                >
+                  {"Show Monitor"}
+                </Checkbox>
+              </Show>
               {/* 开启摄像头后展示 */}
               <div class={css.tip}>3D position about webcam & face</div>
               <TrackMonitor
